@@ -16,5 +16,8 @@
     "webpack",
     "to-string"
   ],
-  "license": "BSD-3-Clause"
+  "license": "BSD-3-Clause",
+  "dependencies": {
+    "loader-utils": "^0.2.16"
+  }
 }
