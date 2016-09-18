@@ -1,7 +1,25 @@
+var loaderUtils = require("loader-utils");
+
 /**
- * @see https://github.com/webpack/webpack/wiki/Loader-Specification
+ * @see https://webpack.github.io/docs/loaders.html
  */
-module.exports = function (content) {
-    this.cacheable();
-    return 'module.exports = ' + JSON.stringify(this.exec(content, this.resource).toString());
+module.exports = function() {}
+
+/**
+ * @see https://webpack.github.io/docs/loaders.html#pitching-loader
+ */
+module.exports.pitch = function(remainingRequest) {
+    if (this.cacheable) {
+        this.cacheable();
+    }
+
+    return `
+        var result = require(${loaderUtils.stringifyRequest(this, "!!" + remainingRequest)});
+
+        if (typeof result === "string") {
+            module.exports = result;
+        } else {
+            module.exports = result.toString();
+        }
+    `;
 };
