@@ -22,7 +22,8 @@ module.exports.pitch = function(remainingRequest) {
         } else if (${query.sourceMap}) {
             module.exports = \`\${result[0][1]}
 
-\${"/\\\*\#"} sourceMappingURL=data:application/json;base64,\${btoa(JSON.stringify(result[0][3]))} */\`;
+\${"/\\\*\#"}
+sourceMappingURL=data:application/json;base64,\${btoa(JSON.stringify(result[0][3]))} */\`;
         } else {
             module.exports = result.toString();
         }
