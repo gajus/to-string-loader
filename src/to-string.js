@@ -20,10 +20,13 @@ module.exports.pitch = function(remainingRequest) {
         if (typeof result === "string") {
             module.exports = result;
         } else if (${query.sourceMap}) {
-            module.exports = \`\${result[0][1]}
-
-\${"/\\\*\#"}
-sourceMappingURL=data:application/json;base64,\${btoa(JSON.stringify(result[0][3]))} */\`;
+            module.exports = [
+              result[0][1],
+              "\\n\\n/\\\*\#\\n",
+              "sourceMappingURL=data:application/json;base64,",
+              btoa(JSON.stringify(result[0][3])),
+              " */"
+            ].join("");
         } else {
             module.exports = result.toString();
         }
