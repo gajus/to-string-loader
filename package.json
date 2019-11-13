@@ -18,6 +18,6 @@
   ],
   "license": "BSD-3-Clause",
   "dependencies": {
-    "loader-utils": "^0.2.16"
+    "loader-utils": "^1.0.0"
   }
 }
