@@ -1,7 +1,7 @@
 {
   "name": "to-string-loader",
   "description": "to-string loader for webpack",
-  "version": "1.1.5",
+  "version": "1.1.6",
   "main": "./src/to-string.js",
   "author": {
     "name": "Gajus Kuizinas",
