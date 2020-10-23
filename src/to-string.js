@@ -16,6 +16,10 @@ module.exports.pitch = function(remainingRequest) {
     return `
         var result = require(${loaderUtils.stringifyRequest(this, "!!" + remainingRequest)});
 
+        if (result && result.__esModule) {
+            result = result.default;
+        }
+
         if (typeof result === "string") {
             module.exports = result;
         } else {
